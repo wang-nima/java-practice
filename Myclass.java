@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Myclass {
 
 	public static void main(String[] args) throws IOException {
-		String fileContent = readFileContent("/Users/shiyuwang/java_input.txt");
+		String fileContent = readFileContent("/Users/shiyuwang/students.txt");
 		System.out.println(fileContent);
 	}
 
@@ -21,17 +21,20 @@ public class Myclass {
 
 		String content = "";
 		StringBuilder sb = new StringBuilder();
-
-		while (content != null) {
+		
+		int i = 0;
+		while (true) {
 			content = bf.readLine();
-
-			if (content == null) {
+			if(content == null)
 				break;
-			}
+			i++;
+			String a[] = content.split(", ");  
+			sb.append(a[0]+" ");  
+			sb.append(a[1]+" "); 
+			sb.append(a[2]+" \n"); 
 
-			sb.append(content);
 		}
-
+		sb.append(i);
 		bf.close();
 		return sb.toString();
 	}
